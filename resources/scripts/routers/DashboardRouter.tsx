@@ -14,7 +14,6 @@ import MobileNavigation from '@/components/elements/MobileNavigation';
 import ReferralContainer from '@/components/dashboard/ReferralContainer';
 import DashboardContainer from '@/components/dashboard/DashboardContainer';
 import AccountApiContainer from '@/components/dashboard/AccountApiContainer';
-import InformationContainer from '@/components/elements/InformationContainer';
 import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer';
 import AccountOverviewContainer from '@/components/dashboard/AccountOverviewContainer';
 import AccountSecurityContainer from '@/components/dashboard/AccountSecurityContainer';
@@ -68,13 +67,7 @@ export default () => {
                         )}
                     </div>
                 </SubNavigation>
-            ) : (
-                <SubNavigation className={'lg:visible invisible'}>
-                    <div>
-                        <InformationContainer />
-                    </div>
-                </SubNavigation>
-            )}
+            ) : null}
             <TransitionRouter>
                 <React.Suspense fallback={<Spinner centered />}>
                     <Switch location={location}>
