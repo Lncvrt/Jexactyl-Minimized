@@ -4,7 +4,7 @@ Jexactyl, but for private & friend use.
 
 ## Installation
 
-> **Caution**
+> [!CAUTION]
 > You MUST be using **Jexacyl v3.7.3**, to check, go to your Jexactyl panel and click the settings icon, it will display what verison you are on.
 
 You can install the mod by doing these commands:
