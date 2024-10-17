@@ -52,12 +52,6 @@ export default ({ className, titles }: RowProps) => {
     return (
         <StoreContainer className={classNames(className, 'grid grid-cols-2 sm:grid-cols-7 gap-x-6 gap-y-2')}>
             <ResourceBox
-                title={'Credits'}
-                description={'The amount of credits you have available.'}
-                icon={<Icon.DollarSign />}
-                amount={resources.balance}
-            />
-            <ResourceBox
                 title={'CPU'}
                 description={'The amount of CPU (in %) you have available.'}
                 icon={<Icon.Cpu />}

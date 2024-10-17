@@ -20,24 +20,12 @@ export default () => {
                 )}
                 <ResourceBar className={'w-full lg:w-3/4'} />
             </div>
-            <div className={'lg:grid lg:grid-cols-3 gap-8 my-10'}>
+            <div className={'lg:grid lg:grid-cols-1 gap-8 my-10'}>
                 <StoreBanner
                     title={'Want to create a server?'}
                     className={'bg-storeone'}
                     action={'Create'}
                     link={'create'}
-                />
-                <StoreBanner
-                    title={'Need more resources?'}
-                    className={'bg-storetwo'}
-                    action={'Buy Resources'}
-                    link={'resources'}
-                />
-                <StoreBanner
-                    title={'Run out of credits?'}
-                    className={'bg-storethree'}
-                    action={'Buy Credits'}
-                    link={'credits'}
                 />
             </div>
         </PageContentBlock>

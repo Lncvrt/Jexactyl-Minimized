@@ -126,7 +126,7 @@ export default () => {
                 onSubmit={submit}
                 initialValues={{
                     name: `${user.username}'s server`,
-                    description: 'Write a server description here.',
+                    description: null,
                     cpu: resources.cpu,
                     memory: resources.memory,
                     disk: resources.disk,
