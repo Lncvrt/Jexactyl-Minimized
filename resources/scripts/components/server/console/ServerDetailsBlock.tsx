@@ -85,12 +85,10 @@ export default ({ className }: { className?: string }) => {
                 Your server is {status}
             </StatBlock>
             <StatBlock icon={faClock} title={'Uptime'}>
-                {status === null ? (
-                    'N/A'
-                ) : stats.uptime > 0 ? (
+                {stats.uptime > 0 ? (
                     <UptimeDuration uptime={stats.uptime / 1000} />
                 ) : (
-                    capitalize(status)
+                    'N/A'
                 )}
             </StatBlock>
             <StatBlock icon={faWifi} title={'Address'} copyOnClick={allocation}>
