@@ -7,7 +7,7 @@ import StatBlock from '@/components/server/console/StatBlock';
 import UptimeDuration from '@/components/server/UptimeDuration';
 import { bytesToString, ip, mbToBytes } from '@/lib/formatters';
 import { SocketEvent, SocketRequest } from '@/components/server/events';
-import { faClock, faHdd, faMemory, faMicrochip, faScroll, faWifi } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faHdd, faMemory, faMicrochip, faScroll, faWifi, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { capitalize } from '@/lib/strings';
 import styled from 'styled-components/macro';
 import tw from 'twin.macro';
@@ -81,9 +81,12 @@ export default ({ className }: { className?: string }) => {
 
     return (
         <div className={classNames('grid grid-cols-6 gap-2 md:gap-4', className)}>
+            <StatBlock icon={status === 'offline' ? faTimes : faCheck} title={'Status'}>
+                Your server is {status}
+            </StatBlock>
             <StatBlock icon={faClock} title={'Uptime'}>
                 {status === null ? (
-                    'Offline'
+                    'N/A'
                 ) : stats.uptime > 0 ? (
                     <UptimeDuration uptime={stats.uptime / 1000} />
                 ) : (
@@ -94,11 +97,7 @@ export default ({ className }: { className?: string }) => {
                 {allocation}
             </StatBlock>
             <StatBlock icon={faMicrochip} title={'CPU'}>
-                {status === 'offline' ? (
-                    <span className={'text-gray-400'}>Offline</span>
-                ) : (
-                    <Limit limit={textLimits.cpu}>{stats.cpu.toFixed(2)}%</Limit>
-                )}
+                <Limit limit={textLimits.cpu}>{stats.cpu.toFixed(2)}%</Limit>
                 {cpuUsed > 100 ? (
                     <Bar style={{ width: '100%' }} css={tw`bg-red-500`} />
                 ) : limits.cpu === 0 ? (
@@ -108,11 +107,7 @@ export default ({ className }: { className?: string }) => {
                 )}
             </StatBlock>
             <StatBlock icon={faMemory} title={'Memory'}>
-                {status === 'offline' ? (
-                    <span className={'text-gray-400'}>Offline</span>
-                ) : (
-                    <Limit limit={textLimits.memory}>{bytesToString(stats.memory)}</Limit>
-                )}
+                <Limit limit={textLimits.memory}>{bytesToString(stats.memory)}</Limit>
                 {memoryUsed > 90 ? (
                     <Bar style={{ width: '100%' }} css={tw`bg-red-500`} />
                 ) : limits.memory === 0 ? (
