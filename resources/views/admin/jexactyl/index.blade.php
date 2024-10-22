@@ -29,9 +29,9 @@
                 </div>
                 <div class="box-body">
                     @if ($version->isLatestPanel())
-                        You are running Jexactyl <code>{{ config('app.version') }}</code>. 
+                        You are running Jexactyl version <code>{{ config('app.version') }}</code>. Your panel is up-to-date!
                     @else
-                        Jexactyl is not up-to-date. <code>{{ config('app.version') }} (current) -> <a href="https://github.com/jexactyl/jexactyl/releases/v{{ $version->getPanel() }}" target="_blank">{{ $version->getPanel() }}</a> (latest)</code>
+                        Your panel is <strong>not up-to-date!</strong> The latest version is <a href="https://github.com/Jexactyl/Jexactyl/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> and you are currently running version <code>{{ config('app.version') }}</code> <b>Note: Please do not update to a version besides v3.7.3 as Jexactyl Minimized will break. It is recommended to reset the entire resources folder inside of Jexactyl before continuing with an update.</b>
                     @endif
                 </div>
             </div>
